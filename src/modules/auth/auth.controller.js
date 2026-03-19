@@ -8,6 +8,7 @@ import {
   loginService,
   logoutService,
   refreshTokenService,
+  changePasswordService,
 } from "./auth.service.js";
 
 // Register
