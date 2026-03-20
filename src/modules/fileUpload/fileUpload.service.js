@@ -1,4 +1,5 @@
 import cloudinary from "../../config/cloudinary.config.js";
+import ApiError from "../../utils/apiError.js";
 
 export const uploadToCloudinary = async (file, folder = "general") => {
   try {
@@ -15,7 +16,7 @@ export const uploadToCloudinary = async (file, folder = "general") => {
       public_id: result.public_id,
     };
   } catch (error) {
-    throw new Error("Cloudinary upload failed");
+    throw new ApiError(400, "Cloudinary upload failed");
   }
 };
 
@@ -25,6 +26,6 @@ export const deleteFromCloudinary = async (public_id) => {
 
     await cloudinary.uploader.destroy(public_id);
   } catch (error) {
-    throw new Error("Failed to delete image from Cloudinary");
+    throw new ApiError(400, "Failed to delete image from Cloudinary");
   }
 };

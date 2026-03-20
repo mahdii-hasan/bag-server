@@ -1,4 +1,5 @@
-import { uploadToCloudinary } from "../modules/fileUpload/fileUpload.service";
+import { uploadToCloudinary } from "./fileUpload.service";
+
 
 export const uploadMultipleFiles = async (files, folder) => {
   return Promise.all(

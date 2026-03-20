@@ -36,6 +36,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "admin", "seller"],
       default: "user",
+      index: true
     },
     isVerified: {
       type: Boolean,
@@ -55,7 +56,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-// 🔑 Compare password
+// Compare password
 userSchema.methods.comparePassword = function (password) {
   return bcrypt.compare(password, this.password);
 };

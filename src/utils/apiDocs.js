@@ -43,7 +43,7 @@ export const apiDocs = {
       ],
     },
     {
-      module: "user",
+      module: "User",
       endpoints: [
         {
           method: "GET",
@@ -67,6 +67,34 @@ export const apiDocs = {
           method: "DELETE",
           path: "/user/me",
         },
+      ],
+    },
+    {
+      module: "Category",
+      endpoints: [
+        {
+          method: "GET",
+          path: "/categories/",
+        },
+        {
+          method: "GET",
+          path: "/categories/:id",
+        },
+        {
+          method: "POST",
+          path: "/categories/",
+          body: ["name", "slug", "disc", "image", "sortOrder", "m.title", "m.desc", "createdBy"],
+        },
+        {
+          method: "PUT",
+          path: "/categories/:id",
+          body: ["name", "slug", "disc", "image", "sortOrder", "m.title", "m.desc", "createdBy"],
+        },
+        {
+          method: "DELETE",
+          path: "/categories/:id",
+        },
+        
       ],
     },
 
