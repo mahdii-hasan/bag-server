@@ -9,26 +9,36 @@ export const apiDocs = {
       endpoints: [
         {
           method: "POST",
-          path: "/register",
+          path: "/auth/register",
           body: ["name", "email", "password"],
         },
         {
           method: "POST",
-          path: "/login",
+          path: "/auth/login",
           body: ["email", "password"],
         },
         {
           method: "POST",
-          path: "/change-password",
+          path: "/auth/change-password",
           body: ["oldPassword", "newPassword"],
         },
         {
           method: "POST",
-          path: "/refresh-token",
+          path: "/auth/forgot-password",
+          body: ["email"],
+        },
+        {
+          method: "PUT",
+          path: "/auth/reset-password/:token",
+          body: ["newPassword"],
         },
         {
           method: "POST",
-          path: "/logout",
+          path: "/auth/refresh-token",
+        },
+        {
+          method: "POST",
+          path: "/auth/logout",
         },
       ],
     },

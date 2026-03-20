@@ -9,6 +9,8 @@ import {
   logoutService,
   refreshTokenService,
   changePasswordService,
+  forgotPasswordService,
+  resetPasswordService,
 } from "./auth.service.js";
 
 // Register
@@ -67,6 +69,7 @@ export const refreshTokenController = async (req, res, next) => {
   try {
     const oldRefreshToken = req.cookies.refreshToken;
     const isProduction = process.env.NODE_ENV === "production";
+    
     const { accessToken, refreshToken } =
       await refreshTokenService(oldRefreshToken);
 
@@ -96,3 +99,21 @@ export const changePasswordController = async (req, res, next) => {
     next(err);
   }
 };
+
+export const forgotPasswordController = async (req, res, next) => {
+    try{
+        await forgotPasswordService(req.body.email)
+        sendResponse({res, message: "Password reset email sent successfully"})
+    }catch(error){
+        next(error)
+    }
+}
+
+export const resetPasswordController = async (req, res, next) => {
+    try{
+        await resetPasswordService(req.params.token, req.body.password)
+        sendResponse({res, message: "Password reset successfully"})
+    }catch(error){
+        next(error)
+    }
+}
