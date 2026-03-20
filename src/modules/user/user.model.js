@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
+
+    avatar_public_id: {
+      type: String,
+      default: null,
+    },
     role: {
       type: String,
       enum: ["user", "admin", "seller"],
@@ -42,6 +47,10 @@ const userSchema = new mongoose.Schema(
     },
     passwordResetToken: String,
     passwordResetExpires: Date,
+    isDeleted:{
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true },
 );

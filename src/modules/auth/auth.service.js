@@ -32,8 +32,14 @@ export const registerService = async (payload) => {
   const { name, email, password } = payload;
 
   const existingUser = await User.findOne({ email });
-  if (existingUser) {
+  if (existingUser && !existingUser.isDeleted) {
     throw new ApiError(400, "Email already exists");
+  }
+  if(existingUser && existingUser.isDeleted){
+    existingUser.isDeleted = false;
+    existingUser.password = await bcrypt.hash(password, 10);
+    await existingUser.save()
+    return existingUser
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -48,6 +54,10 @@ export const loginService = async (payload) => {
   const { email, password } = payload;
 
   const user = await User.findOne({ email }).select("+password");
+
+  if(user && user.isDeleted){
+    throw new ApiError(401, "Invalid email or password");
+  }
 
   if (!user || !(await user.comparePassword(password))) {
     throw new ApiError(401, "Invalid email or password");

@@ -42,6 +42,33 @@ export const apiDocs = {
         },
       ],
     },
+    {
+      module: "user",
+      endpoints: [
+        {
+          method: "GET",
+          path: "/user/me",
+        },
+        {
+          method: "PUT",
+          path: "/user/me",
+          body: ["name"],
+        },
+        {
+          method: "PUT",
+          path: "/user/avatar",
+          body: ["image"],
+        },
+        {
+          method: "DELETE",
+          path: "/user/avatar",
+        },
+        {
+          method: "DELETE",
+          path: "/user/me",
+        },
+      ],
+    },
 
   ],
 };

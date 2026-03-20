@@ -17,6 +17,6 @@ router.post("/refresh-token", refreshTokenController);      //
 router.post("/logout", authMiddleware, logoutController);
 router.post("/change-password", authMiddleware, changePasswordController);
 
-const authRoutes = router;
+const authRouter = router;
 
-export default authRoutes;
+export default authRouter;
