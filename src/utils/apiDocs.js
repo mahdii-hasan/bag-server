@@ -97,6 +97,34 @@ export const apiDocs = {
         
       ],
     },
+    {
+      module: "Product",
+      endpoints: [
+        {
+          method: "GET",
+          path: "/products/",
+        },
+        {
+          method: "GET",
+          path: "/products/:id",
+        },
+        {
+          method: "POST",
+          path: "/products/",
+          body: ["title", "slug", "disc","brand" ,"category", "price", "discountPrice","Stock", "sku", "createdBy", "updatedBy" , "images", "m.title", "m.desc", "createdBy"],
+        },
+        {
+          method: "PUT",
+          path: "/products/:id",
+          body: ["title", "slug", "disc","brand" ,"category", "price", "discountPrice","Stock", "sku", "createdBy", "updatedBy" , "images", "m.title", "m.desc", "createdBy"],
+        },
+        {
+          method: "DELETE",
+          path: "/product/:id",
+        },
+        
+      ],
+    },
 
   ],
 };
