@@ -125,6 +125,34 @@ export const apiDocs = {
         
       ],
     },
+    {
+      module: "Cart",
+      endpoints: [
+        {
+          method: "GET",
+          path: "/cart/",
+        },
+        {
+          method: "POST",
+          path: "/cart/",
+          body: ["ProductId", "quantity"],
+        },
+        {
+          method: "PUT",
+          path: "/cart/:id",
+          body: ["ProductId", "quantity"],
+        },
+        {
+          method: "DELETE",
+          path: "/cart/:id",
+        },
+        {
+          method: "DELETE",
+          path: "/cart/",
+        },
+        
+      ],
+    },
 
   ],
 };
