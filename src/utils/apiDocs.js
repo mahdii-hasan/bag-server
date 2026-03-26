@@ -153,6 +153,30 @@ export const apiDocs = {
         
       ],
     },
+    {
+      module: "Promotions",
+      endpoints: [
+        {
+          method: "GET",
+          path: "/promotions/",
+        },
+        {
+          method: "POST",
+          path: "/promotions/",
+          body: ["title", "subT", "des", "isTemplate", "display", "image", "mobileImage", "productId", "actionUrl", "buttonText", "priority", "startDate", "endDate"],
+        },
+        {
+          method: "PUT",
+          path: "/promotions/:id",
+          body: ["title", "subT", "des", "isTemplate", "display", "image", "mobileImage", "productId", "actionUrl", "buttonText", "priority", "startDate", "endDate"],
+        },       
+        {
+          method: "DELETE",
+          path: "/promotions/:id",
+        },
+        
+      ],
+    },
 
   ],
 };
