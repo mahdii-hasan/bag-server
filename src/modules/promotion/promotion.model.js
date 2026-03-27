@@ -22,13 +22,13 @@ const promotionSchema = new mongoose.Schema(
     display: {
       type: {
         type: String,
-        enum: ["hero", "slider", "sidebar", "popup"],
-        default: "slider"
+        enum: ["hero", "slider", "sidebar", "popup", "banner"],
+        require: true
       },
       place: {
         type: String,
         enum: ["homepage_start","homepage_middle", "homepage_end", "sidebar_left"],
-        default: "homepage_start"
+        require: true
       },
     },
 

@@ -1,7 +1,7 @@
 import Promotion from "./promotion.model.js";
 
 export const getPromotionsService = async (query) => {
-  const { type, place } = query;
+  const { type, place, status } = query;
 
   const filter = {};
 
@@ -13,6 +13,9 @@ export const getPromotionsService = async (query) => {
   // Filter by place (homepage_top, etc.)
   if (place) {
     filter["display.place"] = place;
+  }
+  if (status) {
+    filter["status"] = status;
   }
 
   const [promotions, total] = await Promise.all([
